@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up </title>
+</head>
+
+<html>
+<body>
+<div class="system_name">
+  <h2>購物狂註冊頁面</h2>
+</div>
+
+<div class="signup_page">
+<div id="container1">
+
+  <div class="signup">
+
+    <h3>註冊 Sign Up</h3>
+
+    <form action="index.html">
+      <input type="text" id="Uname" name="Uname" placeholder="使用者全名" required>
+      <div class="tab"></div>
+      <input type="text" id="Uid" name="Uid" placeholder="帳號" required>
+      <div class="tab"></div>
+      <input type="text" id="password" name="password" placeholder="密碼" required>
+      <div class="tab"></div>
+      <input type="text" id="comfirm_password" name="comfirm_password" placeholder="確認密碼" required>
+      <div class="tab"></div>
+      <input type="submit" value="註冊" class="submit">
+    </form>
+
+    <h5 onclick="login.html">登入帳號</h5>
+
+  </div><!-- signup end-->
+</div><!-- container2 end-->
+</div><!-- signup_page end-->
+
+</body>
+</html>
+
+<style type="text/css">
+
+*{
+  font-family:微軟正黑體;
+}
+
+body{
+  background-color: white;
+}
+
+#username, #password, h3, #fullname, #comfirm_password,#username2, #password2{
+  width: 200px;
+  height: 20px;
+  margin: 10px;
+  color: #4472C4;
+}
+
+h5{
+  margin: 20px;
+  color: #4472C4;
+}
+
+h5:hover{
+  color: black;
+}
+
+#container1{
+  //margin: 50px;
+  padding: 10px;
+  width: 230px;
+  height: 350px;
+  background-color: white;
+  border-radius: 5px;
+  border-top: 10px solid #4472C4;
+  box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+
+  /*定位對齊*/
+  position:relative;
+  margin: auto;
+  top: 100px;
+  //text-align:center;
+}
+
+.system_name{
+  /*定位對齊*/
+  position:relative;
+  margin: auto;
+  top: 100px;
+  text-align:center;
+}
+
+.submit{
+  color: white;
+  background: #4472C4;
+  width: 200px;
+  height: 30px;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 0px;
+}
+
+.submit:hover{
+  background: #4472C4;
+}
+
+
+input{
+  padding: 5px;
+  border: none;
+  border:solid 1px #ccc;
+  border-radius: 5px;
+}
+</style>
