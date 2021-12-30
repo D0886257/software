@@ -14,9 +14,9 @@ public class SignUp {
   @Autowired
   private Sql2oDbHandler sql2oDbHandler;
 
-  public List<User> SignUp() {
+  public List<User> SignUp(String userName, String Account, String pwd, String mail, int phone) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = "INSERT INTO user (Uid, Name, Password) VALUE (uid, name, password)";
+      String query = "INSERT INTO USER (Username, Account, Password, Mail, Phone) VALUE (userName, Account, pwd, mail, phone)";
 
       return connection.createQuery(query).executeAndFetch(User.class);
     }
