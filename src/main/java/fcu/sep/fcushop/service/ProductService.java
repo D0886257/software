@@ -20,13 +20,8 @@ public class ProductService {
 
     public List<Product> getProducts() {
         try (Connection connection = sql2oDbHandler.getConnector().open()) {
-<<<<<<< Updated upstream
             String query = "select ID id, NAME name, IMAGE_URL imageUrl, PRICE price, DESCRIPTION description"
                 + " from PRODUCT";
-=======
-            String query = "select Pid id, NAME name, IMAGE_URL imageUrl, PRICE price, DESCRIPTION description"
-                + " from product";
->>>>>>> Stashed changes
 
             return connection.createQuery(query).executeAndFetch(Product.class);
         }
@@ -34,13 +29,8 @@ public class ProductService {
 
     public List<Product> getProducts(String keyword) {
         try (Connection connection = sql2oDbHandler.getConnector().open()) {
-<<<<<<< Updated upstream
             String query = "select ID id, NAME name, IMAGE_URL imageUrl, PRICE price, DESCRIPTION description"
                 + " from PRODUCT where name like :keyword";
-=======
-            String query = "select Pid id, NAME name, IMAGE_URL imageUrl, PRICE price, DESCRIPTION description"
-                + " from product where name like :keyword";
->>>>>>> Stashed changes
 
             return connection.createQuery(query)
                 .addParameter("keyword","%"+keyword+"%")
