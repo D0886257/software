@@ -23,8 +23,8 @@ public class User {
   public String getName() {
     return name;
   }
-  public void setname(String username) {
-    this.name = username;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public String getPassword() {
@@ -44,7 +44,7 @@ public class User {
   public String getPhone() {
     return phone;
   }
-  public void setPHONE(String phone) {
+  public void setPhone(String phone) {
     this.phone = phone;
   }
 }
