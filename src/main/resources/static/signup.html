@@ -91,7 +91,7 @@ function SignUp(){
   const pwd = document.getElementById("pwd").value;
   const mail = document.getElementById("mail").value;
   const phone = document.getElementById("phone").value;
-  if(UserName == '' || Account == '' || pwd == '' || mail == '' || phone == ''){
+  if(UserName == '' || Account == '' || pwd == '' || mail == '' || phone == '' || UserName == undefined || Account == undefined || pwd == undefined || mail == undefined || phone == undefined || UserName == null || Account == null || pwd == null || mail == null || phone == null){
 		alert("Some information is not filled in!");
   }else{
     SignUp(UserName, Account, pwd, mail, phone);
