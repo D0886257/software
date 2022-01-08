@@ -2,42 +2,49 @@ package fcu.sep.fcushop.model;
 
 public class User {
 
-  private String uid;
+  private String username;
 
   private String name;
 
   private String password;
 
-  public User() {
-  }
+  private String email;
 
-  public User(String uid, String name, String password) {
-    this.uid = uid;
-    this.name = name;
-    this.password = password;
-  }
+  private String phone;
 
-  public String getId() {
-    return uid;
-  }
 
-  public void setId(String uid) {
-    this.uid = uid;
+  public String getUsername() {
+    return username;
+  }
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   public String getName() {
     return name;
   }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setname(String username) {
+    this.name = username;
   }
 
   public String getPassword() {
     return password;
   }
-
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getPhone() {
+    return phone;
+  }
+  public void setPHONE(String phone) {
+    this.phone = phone;
   }
 }
