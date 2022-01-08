@@ -5,7 +5,8 @@ import fcu.sep.fcushop.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.sql2o.Connection;
-import java.math.BigInteger;
+
+import java.util.List;
 
 /**
  * The service used to access the data related to user.
@@ -35,6 +36,15 @@ public class UserService {
                     .addParameter("phone", newUser.getPhone())
                     .executeUpdate();
             return newUser;
+        }
+    }
+
+    public List<User> getUsers() {
+        try (Connection connection = sql2oDbHandler.getConnector().open()) {
+            String query = "select USERNAME username, NAME name, PASSWORD password, EMAIL email, PHONE phone"
+                    + " from User";
+
+            return connection.createQuery(query).executeAndFetch(User.class);
         }
     }
 }
