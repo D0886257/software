@@ -15,7 +15,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">FCU Shop</a>
+        <a class="navbar-brand" href="index.html">FCU Shop</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,40 +23,54 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                    <a class="nav-link active" aria-current="page" href="index.html">首頁</a>
                 </li>
-                <li class="nav-item">
+                <!--<div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        商城
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="index.html">逢甲商城</a></li>
+                        <li><a class="dropdown-item" href="index.html">一中商城</a></li>
+                    </ul>
+                </div>-->
+
+                <!--<li class="nav-item">
                     <a class="nav-link" href="#">逢甲商城</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">一中商城</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        商品管理
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">新增商品</a></li>
-                        <li><a class="dropdown-item" href="#">修改商品</a></li>
-                    </ul>
-                </li>
-
+                </li>-->
             </ul>
 
 
             <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
-                <li class="nav-item">
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        會員
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="login.html">會員登入</a></li>
+                        <li><a class="dropdown-item" href="signup.html">加入會員</a></li>
+                        <li><a class="dropdown-item" href="member.html">會員中心</a></li>
+                    </ul>
+                </div>
+                <!--<li class="nav-item">
                     <a class="nav-link" href="login.html">登入</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="sign.html">註冊</a>
+                    <a class="nav-link" href="signup.html">註冊</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">會員中心</a>
+                    <a class="nav-link" href="profile.html">會員中心</a>
+                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link" href="favor1.html">收藏清單</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">購物車(0)</a>
+                    <a class="nav-link" href="cart1.html">購物車</a>
                 </li>
+
             </ul>
 
             <!--<form class="d-flex">
@@ -76,7 +90,140 @@
     </div>
 
     <div class="mt-3 row" id="productList">
-    </div>
+       <!-- <div class="card col-4">
+        <img src="https://cf.shopee.tw/file/7ba2a40df8865cf53e002b4cf0032314" class="card-img-top" alt="咔哩咔哩">
+        <div class="card-body">
+            <h5 class="card-title">咔哩咔哩</h5>
+            <p class="card-text">酥脆的滋味 歡樂每一刻</p>
+            <a href="product_detail1.html" class="btn btn-primary"> 商品詳情 </a>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img src="https://cf.shopee.tw/file/f050c2aeba7b4a6ffb30c302c4f58b4b" class="card-img-top" alt="雪魚切片">
+            <div class="card-body">
+                <h5 class="card-title">雪魚切片</h5>
+                <p class="card-text">海味十足 刷嘴切片 完全保留雪魚的風味 配上淡淡胡椒香</p>
+                <a href="product_detail2.html" class="btn btn-primary"> 商品詳情 </a>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img src="https://cf.shopee.tw/file/0e0ed7f5a4d725f5f8df6026b4ba6427" class="card-img-top" alt="義大利高級巧克力">
+            <div class="card-body">
+                <h5 class="card-title">義大利高級巧克力</h5>
+                <p class="card-text">義大利高級巧克力 純黑70%巧克力 巧克力控必買</p>
+                <a href="product_detail3.html" class="btn btn-primary"> 商品詳情 </a>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img src="https://cf.shopee.tw/file/6c2ffa014cf0998b7759349e8ddbcfba" class="card-img-top" alt="綜合蔬果脆片">
+            <div class="card-body">
+                <h5 class="card-title">綜合蔬果脆片</h5>
+                <p class="card-text">超熱銷商品蔬果脆片 獨立密封包裝 內含波羅蜜、芋頭 、甘薯、香蕉</p>
+                <a href="product_detail4.html" class="btn btn-primary"> 商品詳情 </a>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img src="https://cf.shopee.tw/file/d3a3724f2328cc8b9c36069695525e40" class="card-img-top" alt="同心餅">
+            <div class="card-body">
+                <h5 class="card-title">同心餅</h5>
+                <p class="card-text">十穀米同心餅 保證非傳統油炸餅乾 多種穀物而製 酥脆爽口 口味多元 超級刷嘴</p>
+                <a href="product_detail5.html" class="btn btn-primary"> 商品詳情 </a>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img src="https://cf.shopee.tw/file/48f9c36238625a0b20c01a583daef96f" class="card-img-top" alt="好大片海苔">
+            <div class="card-body">
+                <h5 class="card-title">好大片海苔</h5>
+                <p class="card-text">泰國經典巨大海苔 每一片都比手掌大 片片獨立包裝超級衛生 獨特佐醬保留海苔香氣</p>
+                <a href="product_detail6.html" class="btn btn-primary"> 商品詳情 </a>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img src="https://cf.shopee.tw/file/3d7be4563c829bfcadf98c2597e15415" class="card-img-top" alt="果仁風味酥 ">
+            <div class="card-body">
+                <h5 class="card-title">果仁風味酥</h5>
+                <p class="card-text">滿滿果仁的沙琪瑪 拜拜送人都很划算</p>
+                <a href="product_detail7.html" class="btn btn-primary"> 商商品詳情 </a>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img src="https://cf.shopee.tw/file/5ecd0a74651f65e69660209d7d68598f" class="card-img-top" alt="天婦羅海苔 ">
+            <div class="card-body">
+                <h5 class="card-title">天婦羅海苔</h5>
+                <p class="card-text">熱銷品牌喜樂口推出 海苔天婦羅餅乾 酥脆的口感讓人一吃愛上</p>
+                <a href="product_detail8.html" class="btn btn-primary"> 商品詳情 </a>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img src="https://cf.shopee.tw/file/da6b66c740f9d11451bb454aabd98031" class="card-img-top" alt="果醬曲奇餅">
+            <div class="card-body">
+                <h5 class="card-title">果醬曲奇餅</h5>
+                <p class="card-text">CP超高果醬餅乾 滿滿果醬填滿整塊餅乾</p>
+                <a href="product_detail9.html" class="btn btn-primary"> 商品詳情 </a>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img src="https://cf.shopee.tw/file/96bfce7bec467da23f8136ee9103ae2c" class="card-img-top" alt="有田卷">
+            <div class="card-body">
+                <h5 class="card-title">有田卷</h5>
+                <p class="card-text">經典不敗零食 越吃越刷嘴</p>
+                <a href="product_detail10.html" class="btn btn-primary"> 商品詳情 </a>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img src="https://cf.shopee.tw/file/b25ddfdf94d7579e024b23d5570a3f9a" class="card-img-top" alt="魷魚條">
+            <div class="card-body">
+                <h5 class="card-title">魷魚條</h5>
+                <p class="card-text">鮮味十足 是最傳統的好味道 淡淡炭烤香 香噴噴海味 愈嚼愈上癮，回味無窮 </p>
+                <a href="product_detail11.html" class="btn btn-primary"> 商品詳情 </a>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img src="https://cf.shopee.tw/file/1a73bcd83d1fec39ae2c898002f9659e" class="card-img-top" alt="棉花糖">
+            <div class="card-body">
+                <h5 class="card-title">棉花糖</h5>
+                <p class="card-text">菲律賓第一棉花糖大廠 廣泛用於雪Q餅、蛋糕裝飾、擺盤裝飾</p>
+                <a href="product_detail12.html" class="btn btn-primary"> 商品詳情 </a>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img src="https://cf.shopee.tw/file/55ea1ed8411f0edf3e342c16b583b793" class="card-img-top" alt="麻花捲">
+            <div class="card-body">
+                <h5 class="card-title">麻花捲</h5>
+                <p class="card-text">純手工製作 全素麻花捲</p>
+                <a href="product_detail13.html" class="btn btn-primary"> 商品詳情 </a>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img src="https://cf.shopee.tw/file/f98b75bb8057c707c4da2ab1866ec25a" class="card-img-top" alt="奶油夾心">
+            <div class="card-body">
+                <h5 class="card-title">奶油夾心</h5>
+                <p class="card-text">酥脆蘇打餅配上綿密鮮奶油 香甜的滋味每一口都品嚐得到</p>
+                <a href="product_detail14.html" class="btn btn-primary"> 商品詳情 </a>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img src="https://cf.shopee.tw/file/e6b446c5af0d576ee2ce579c5c66456c" class="card-img-top" alt="蝦餅">
+            <div class="card-body">
+                <h5 class="card-title">蝦餅</h5>
+                <p class="card-text">吃進嘴裡 入口即化的口感 鹹酥鹹酥的滋味在嘴巴散開 好吃到停不下</p>
+                <a href="product_detail15.html" class="btn btn-primary"> 商品詳情 </a>
+            </div>
+        </div>-->
 </div>
 
 
@@ -96,11 +243,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 -->
 
-<script>
-  $( document ).ready( function() {
+<script >
+ $( document ).ready( function() {
     console.log( "ready!" );
     emptyProducts();
     getProducts('products');
+
   });
 
      $('#searchProduct').click(function(){
@@ -117,6 +265,7 @@
         $('#productList').empty();
     }
 
+
     function addProducts(products){
         for ( let product of products ) {
         let html = '<div class="card col-4">';
@@ -124,7 +273,7 @@
         html += '<div class="card-body">';
         html += '<h5 class="card-title">' + product.name + '</h5>';
         html += '<p class="card-text">' + product.description + '</p>';
-        html += '<a href="#" class="btn btn-primary">' + product.price + '</a>';
+        html += '<a href="product_detail?id='+product.id+' " class="btn btn-primary"> view detail </a>';
         html += '</div>';
         html += '</div>';
         $('#productList').append(html);
@@ -161,9 +310,9 @@
       console.dir( xhr );
     })
     // Code to run regardless of success or failure;
-    .always(function( xhr, status ) {
-      alert( "The request is complete!" );
-    });
+    //.always(function( xhr, status ) {
+    //  alert( "The request is complete!" );
+    //});
     }
 </script>
 </body>

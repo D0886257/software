@@ -2,44 +2,39 @@ package fcu.sep.fcushop.service;
 
 import fcu.sep.fcushop.database.Sql2oDbHandler;
 import fcu.sep.fcushop.model.User;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.sql2o.Connection;
+import java.math.BigInteger;
 
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.lang.reflect.InvocationTargetException;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
-
-
-
+/**
+ * The service used to access the data related to user.
+ */
 @Service
 public class UserService {
 
   @Autowired
   private Sql2oDbHandler sql2oDbHandler;
 
-  public UserService() {
-
-  }
-
-
-
-  public List<User> getUser() {
+  /**
+   * Register a user.
+   *
+   * @param newUser input user
+   * @return user with given id
+   */
+  public User registerUser(User newUser) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String sql = "INSERT INTO User VALUES ('Pomelo','Andrew','abc123','123@gmail.com','094155765' )";
-
-
-      return connection.createQuery(sql).executeAndFetch(User.class);
+      String query = "INSERT INTO User (USERNAME, NAME, PASSWORD, EMAIL, PHONE) "
+          + "VALUES (:username, :name, :password, :email, :phone)";
+      System.out.println(query);
+      connection.createQuery(query)
+          .addParameter("username", newUser.getUsername())
+          .addParameter("name", newUser.getName())
+          .addParameter("password", newUser.getPassword())
+          .addParameter("email", newUser.getEmail())
+          .addParameter("phone", newUser.getPhone())
+          .executeUpdate();
+      return newUser;
     }
   }
-
-
-
-
 }
-
