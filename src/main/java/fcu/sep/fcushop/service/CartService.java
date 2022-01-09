@@ -29,7 +29,7 @@ public class CartService {
      */
     public Cart insertCart(Cart newCart) {
         try (Connection connection = sql2oDbHandler.getConnector().open()) {
-            String query = "INSERT INTO Cart (ID, NAME, IMAGE_URL, PRICE) "
+            String query = "INSERT INTO Cart (ID, NAME, URL, PRICE) "
                     + "VALUES (:id, :name, :url, :price)";
             System.out.println(query);
             connection.createQuery(query)
