@@ -9,6 +9,43 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Crazy Shop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">首頁</a>
+                </li>
+            </ul>
+
+
+            <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        會員中心
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="login.html">登入會員</a></li>
+                        <li><a class="dropdown-item" href="signup.html">加入會員</a></li>
+                        <li><a class="dropdown-item" href="member.html">會員中心</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="favor1.html">收藏清單</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart1.html">購物車</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
 <main class="page">
     <section class="shopping-cart dark">
         <div class="container">
@@ -17,43 +54,10 @@
             </div>
             <div class="content">
                 <div class="row">
-                    <div class="col-md-12 col-lg-8">
-                        <div class="items">
-                            <div class="product">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img class="img-fluid mx-auto d-block image" src="#">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="info">
-                                            <div class="row">
-                                                <div class="col-md-5 product-name">
-                                                    <div class="product-name">
-                                                        <a href="#">Name#</a>
-                                                        <div class="product-info">
-                                                            <div><span class="value">Description#</span></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 quantity">
-                                                    <label for="quantity">數量:</label>
-                                                    <input id="quantity" type="number" value ="1" class="form-control quantity-input">
-                                                </div>
-                                                <div class="col-md-3 price">
-                                                    <span>$#</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="col-md-12 col-lg-8" id="productList"></div>
                     <div class="col-md-12 col-lg-4">
                         <div class="summary">
                             <h3>$</h3>
-                            <div class="summary-item"><span class="text">單價</span><span class="price">$#</span></div>
-                            <div class="summary-item"><span class="text">折扣</span><span class="price">$#</span></div>
                             <div class="summary-item"><span class="text">運費</span><span class="price">$60</span></div>
                             <div class="summary-item"><span class="text">總金額</span><span class="price">$#</span></div>
                             <button type="button" class="btn btn-primary btn-lg btn-block">結帳</button>
@@ -64,12 +68,87 @@
         </div>
     </section>
 </main>
-</body>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</body>
-</html>
+<script>
+    var getUrlString = location.href;
+		var url = new URL(getUrlString);
+		var id = url.searchParams.get('id');
 
+		$( document ).ready( function() {
+		    console.log( "ready!" );
+		    getProducts('products');
+    });
+
+    function emptyProducts(){
+        $('#productList').empty();
+    }
+
+    function addProducts(products){
+        for ( let product of products ) {
+            if(product.id == id){
+                var t = product.price;
+                let html = '<div class="items">';
+                html += '<div class="product">';
+                html += '<div class="row">';
+                html += '<div class="col-md-3"><img class="img-fluid mx-auto d-block image" src="' + product.imageUrl + '"></div>';
+                html += '<div class="col-md-8">';
+                html += '<div class="info">';
+                html += '<div class="row">';
+                html += '<div class="col-md-5 product-name">';
+                html += '<div class="product-name"><a href="product_detail.html?id='+product.id+'">' + product.name + '</a>';
+                html += '<div class="product-info"><div><span class="value">' + product.description + '</span></div></div>';
+                html += '</div>';
+                html += '</div>';
+                html += '<div class="col-md-4 quantity">';
+                html += '<label for="quantity">數量:</label>';
+                html += '<input id="quantity" type="number" value ="1" class="form-control quantity-input" min="0" max="50">';
+                var quantity = Number($('quantity').val())
+                html += '</div>';
+                html += '<div class="col-md-3 price"><span>' + t*quantity + '</span></div>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+			    $('#productList').append(html);
+			}
+        }
+    }
+
+    function getProducts(targetUrl){
+        $.ajax({
+          // The URL for the request
+          url: targetUrl,
+
+          // Whether this is a POST or GET request
+          type: "GET",
+
+          // The type of data we expect back
+          dataType : "json",
+        })
+
+    // Code to run if the request succeeds (is done);
+    // The response is passed to the function
+    .done(function( json ) {
+      let products = json;
+      addProducts(products);
+    })
+    // Code to run if the request fails; the raw request and
+    // status codes are passed to the function
+    .fail(function( xhr, status, errorThrown ) {
+      alert( "Sorry, there was a problem!" );
+      console.log( "Error: " + errorThrown );
+      console.log( "Status: " + status );
+      console.dir( xhr );
+    })
+    // Code to run regardless of success or failure;
+    .always(function( xhr, status ) {
+      //alert( "The request is complete!" );
+    });
+    }
+</script>
 <style type="text/css">
 .shopping-cart{
 padding-bottom: 50px;
@@ -204,3 +283,5 @@ text-align: center;
 }
 }
 </style>
+</body>
+</html>

@@ -88,7 +88,7 @@
 								html += '<div class="col-md-3 text-right pqr"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>';
 								html += '</div>';
 								html += '</div>';
-								html += '<div class="container-body mt-4">';
+								html += '<div class="container-body mt-4" style="text-align:center">';
 								html += '<div class="row r3">';
 								html += '<div class="col-md-5 p-0 klo">';
 								html += '<ul>';
@@ -96,7 +96,7 @@
 								html += '<li> $' + product.price + '</li>';
 								html += '</ul>';
 								html += '</div>';
-								html += '<div class="col-md-7"> <img src="' + product.imageUrl + '" width="90%" height="95%"> </div>';
+								html += '<div class="col-md-7"> <img src="' + product.imageUrl + '" width="300" height="300"> </div>';
 								html += '</div>';
 								html += '</div>';
 								html += '<div class="col-md-4 quantity">';
@@ -105,8 +105,7 @@
 								html += '</div>';
 								html += '<div class="footer d-flex flex-column mt-5">';
 								html += '<div class="row r4">';
-								html += '<div class="col-md-2 myt "><button type="button" class="btn btn-outline-warning"><a href="#">ADD TO CART</a></button></div>';
-								html += '<div class="col-md-2 myt "><button type="button" class="btn btn-outline-warning"><a href="cart1.html">BUY NOW</a></button></div>';
+								html += '<div class="col-md-2 myt "><button type="button" ><a href="cart1.html?id='+product.id+'">BUY NOW</a></button></div>';
 								html += '</div>';
 								html += '</div>';
 								html += '</div>';
