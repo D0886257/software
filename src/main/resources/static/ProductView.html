@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSS Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #146;
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+  color: white;
+}
+
+/* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style the content */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+/* Style the footer */
+footer {
+  background-color: #146;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h2>購物狂</h2>
+</header>
+
+<section>
+    <article>
+        <h1 align="center"> 韓國 CW 可可豆 麻糬餅 巧克力豆 餅乾</h1>
+        <p id="NickContainer" class="nick" align="center">CW可可豆風味麻糬餅240g</p>
+        <div class="Cm_Cl">
+            <div id="ImgContainer" class="prod_img site_valign vc_360"><div class="vc_container"><img itemprop="image" src="//f.ecimg.tw/items/DBAEFTA900ASEHN/000001_1595931349.jpg" alt="" ins-init-condition="#W2l0ZW1wcm9wPWltYWdlXQ==" width="200" height="200"></div></div>
+        </div>
+        <ul class="fieldset_box orignbutton"><li class="site_btn origncheckbutton add24hCart" _ea="prod_addtocart_proddescribe" id="ButtonContainer"><select class="Qty"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><button class=""><span>加入</span><span>購物車</span></button></li></ul>
+        <ul class="fieldset_box orignbutton"><li class="site_btn origncheckbutton add24hCart" _ea="prod_addtocart_proddescribe" id="ButtonContainer"><select class="Qty"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><button class=""><span>直接購買</span></button></li> </ul>
+
+        <ul class="fieldset_box orignbutton"><li class="site_btn origncheckbutton add24hCart" _ea="prod_addtocart_proddescribe" id="ButtonContainer"><button class=""><span>收藏</span></button></li></ul>
+    </article>
+</section>
+
+<footer>
+    <h5 id="ExtraContainer" class="extra unblock"></h5>
+
+    <p align="left"> ❤喜歡巧克力的人絕不能錯過</p>
+    <p align="left">❤口感濃郁不甜膩</p>
+    <p align="left">❤獨立包裝讓更多朋友一起分享美味</p>
+    <p align="left">❤韓國最夯麻糬巧克力餅</p>
+    <p align="left">❤IG打卡第一名</p>
+    <div class="slogan" id="SloganContainer" itemprop="description">
+    </div>
+</footer>
+
+</body>
+</html>
+
