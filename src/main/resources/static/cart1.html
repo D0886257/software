@@ -9,43 +9,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Crazy Shop</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">首頁</a>
-                </li>
-            </ul>
 
-
-            <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        會員中心
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="login.html">登入會員</a></li>
-                        <li><a class="dropdown-item" href="signup.html">加入會員</a></li>
-                        <li><a class="dropdown-item" href="member.html">會員中心</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="favor1.html">收藏清單</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="cart1.html">購物車</a>
-                </li>
-            </ul>
-
-        </div>
-    </div>
-</nav>
 <main class="page">
     <section class="shopping-cart dark">
         <div class="container">
@@ -56,11 +20,7 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-8" id="productList"></div>
                     <div class="col-md-12 col-lg-4">
-                        <div class="summary">
-                            <h3>$</h3>
-                            <div class="summary-item"><span class="text">運費</span><span class="price">$60</span></div>
-                            <div class="summary-item"><span class="text">總金額</span><span class="price">$#</span></div>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">結帳</button>
+                        <div class="summary" id="total">
                         </div>
                     </div>
                 </div>
@@ -82,12 +42,13 @@
 
     function emptyProducts(){
         $('#productList').empty();
+        $('#total').empty();
     }
 
     function addProducts(products){
         for ( let product of products ) {
             if(product.id == id){
-                var t = product.price;
+                var t = product.price+40;
                 let html = '<div class="items">';
                 html += '<div class="product">';
                 html += '<div class="row">';
@@ -103,9 +64,9 @@
                 html += '<div class="col-md-4 quantity">';
                 html += '<label for="quantity">數量:</label>';
                 html += '<input id="quantity" type="number" value ="1" class="form-control quantity-input" min="0" max="50">';
-                var quantity = Number($('quantity').val())
+<!--                var quantity = Number($('quantity').val())-->
                 html += '</div>';
-                html += '<div class="col-md-3 price"><span>' + t*quantity + '</span></div>';
+                html += '<div class="col-md-3 price"><span>' + product.price + '</span></div>';
                 html += '</div>';
                 html += '</div>';
                 html += '</div>';
@@ -113,6 +74,14 @@
                 html += '</div>';
                 html += '</div>';
 			    $('#productList').append(html);
+
+			    let h='<h3>Summary</h3>';
+			    h += '<div class="summary-item"><span class="text">商品總額</span><span class="price">$' +product.price+ '</span></div>';
+			    h += '<div class="summary-item"><span class="text">運費</span><span class="price">$40</span></div>';
+			    h += '<span class="price">$' + t + '</span>';
+			    h += '<div class="summary-item"><span class="text" >總金額</span></div>';
+			    h += '<a href="pay.html?id='+product.id+'" class="btn btn-primary" > 結帳 </a>';
+			    $('#total').append(h);
 			}
         }
     }
@@ -149,6 +118,7 @@
     });
     }
 </script>
+
 <style type="text/css">
 .shopping-cart{
 padding-bottom: 50px;
@@ -156,12 +126,12 @@ font-family: 'Montserrat', sans-serif;
 }
 
 .shopping-cart.dark{
-background-color: #f6f6f6;
+<!--background-color: #f6f6f6;-->
 }
 
 .shopping-cart .content{
 box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
-background-color: white;
+<!--background-color: white;-->
 }
 
 .shopping-cart .block-heading{
