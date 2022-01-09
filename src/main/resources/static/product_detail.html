@@ -105,7 +105,7 @@
 								html += '</div>';
 								html += '<div class="footer d-flex flex-column mt-5">';
 								html += '<div class="row r4">';
-								html += '<div class="col-md-2 myt "><button type="button" ><a href="cart1.html?id='+product.id+'">BUY NOW</a></button></div>';
+								html += '<div class="col-md-2 myt "><button type="button" id='signupBtn'><a href="cart1.html?id='+product.id+'">BUY NOW</a></button></div>';
 								html += '</div>';
 								html += '</div>';
 								html += '</div>';
@@ -113,6 +113,25 @@
 						}
         }
     }
+$('#signupBtn').click(function() {
+
+    const id = $('#id').val();
+    const name = $('#name').val();
+    const url = $('#url').val();
+    const price = $('#price').val();
+
+    $.ajax({
+      type: "POST",
+      contentType:"application/json; charset=utf-8",
+      url: "register",
+      data: '{"id":"' + id + '","name":"' + name + '", "url":"' + url + '", "price":"' + price + '"}',
+      dataType : "json"
+    }).done(function( json ) {
+      let newcart = json;
+      $('#alertSuccess').fadeIn();
+      $('#alertSuccessUsername').text(newcart.id);
+      emptySignupFields();
+    })
 
     function getProducts(targetUrl){
         $.ajax({
