@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+</head>
+<body>
+<div class="alert alert-success" role="alert" id="alertSuccess">
+<!--    <h4><span id="alertSuccessUsername"></span> 訂購成功</h4>-->
+</div>
+<main class="page payment-page">
+    <section class="payment-form dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2>Payment</h2>
+            </div>
+            <form>
+                <h3 class="title" align="center">Checkout</h3>
+                <div class="products" id="check"></div>
+                <div class="card-details">
+                    <h3 class="title" align="center">Details</h3>
+                    <div class="row">
+                            <p>統一貨到付款</p>
+<!--                            <input id="card-holder" type="text" class="form-control" placeholder="Card Holder" aria-label="Card Holder" aria-describedby="basic-addon1">-->
+                            <div class="form-group col-sm-8">
+                                <label for="card-number">收件者</label>
+                                <input id="rname" type="text" class="form-control" placeholder="Name" aria-label="Card Holder" aria-describedby="basic-addon1">
+                            </div>
+                        <div class="form-group col-sm-8">
+                            <label for="card-number">收件超商</label>
+                            <input id="store" type="text" class="form-control" placeholder="Store" aria-label="Card Holder" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="form-group col-sm-8">
+                            <label for="card-number">Phone Number</label>
+                            <input id="card-number" type="text" class="form-control" placeholder="Card Number" aria-label="Card Holder" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <button type="button" class="btn btn-primary btn-block" id="proceed" ><a href = "index.html">Proceed</a></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+    var getUrlString = location.href;
+		var url = new URL(getUrlString);
+		var id = url.searchParams.get('price');
+
+		$( document ).ready( function() {
+<!--		    $('#alertSuccess').hide();-->
+		    console.log( "ready!" );
+		    getProducts();
+    });
+
+    function emptyProducts(){
+        $('#check').empty();
+    }
+
+$('#proceed').click(function(){
+       alert("訂購成功");
+    });
+    function addProducts(products){
+        for ( let product of products ) {
+
+			    let h='<div class="item">';
+			    h += '<span class="price">$' +product.price+ '</span>';
+			    h += '<p class="item-name">' + product.name + '</p>';
+			    h += '<div class="col-md-3"><img class="img-fluid mx-auto d-block image" src="' + product.url + '" width="100" height="100"></div>';
+
+			    $('#check').append(h);
+
+        }
+        let  h = '<span class="price">$' + id + '</span>';s
+		     h += '<div class="summary-item"><span class="text" >總金額</span></div>';
+		     $('#check').append(h);
+    }
+
+    function getProducts(){
+        $.ajax({
+          // The URL for the request
+          url: "getCarts",
+
+          // Whether this is a POST or GET request
+          type: "GET",
+
+          // The type of data we expect back
+          dataType : "json",
+        })
+
+    // Code to run if the request succeeds (is done);
+    // The response is passed to the function
+    .done(function( json ) {
+      let products = json;
+      addProducts(products);
+    })
+    // Code to run if the request fails; the raw request and
+    // status codes are passed to the function
+    .fail(function( xhr, status, errorThrown ) {
+      alert( "Sorry, there was a problem!" );
+      console.log( "Error: " + errorThrown );
+      console.log( "Status: " + status );
+      console.dir( xhr );
+    })
+    // Code to run regardless of success or failure;
+    .always(function( xhr, status ) {
+      //alert( "The request is complete!" );
+    });
+    }
+</script>
+
+<style>
+    .payment-form{
+	padding-bottom: 50px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.payment-form.dark{
+	background-color: #f6f6f6;
+}
+
+.payment-form .content{
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+	background-color: white;
+}
+
+.payment-form .block-heading{
+    padding-top: 50px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.payment-form .block-heading p{
+	text-align: center;
+	max-width: 420px;
+	margin: auto;
+	opacity:0.7;
+}
+
+.payment-form.dark .block-heading p{
+	opacity:0.8;
+}
+
+.payment-form .block-heading h1,
+.payment-form .block-heading h2,
+.payment-form .block-heading h3 {
+	margin-bottom:1.2rem;
+	color: #3b99e0;
+}
+
+.payment-form form{
+	border-top: 2px solid #5ea4f3;
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+	background-color: #ffffff;
+	padding: 0;
+	max-width: 600px;
+	margin: auto;
+}
+
+.payment-form .title{
+	font-size: 1em;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	margin-bottom: 0.8em;
+	font-weight: 600;
+	padding-bottom: 8px;
+}
+
+.payment-form .products{
+	background-color: #f7fbff;
+    padding: 25px;
+}
+
+.payment-form .products .item{
+	margin-bottom:1em;
+}
+
+.payment-form .products .item-name{
+	font-weight:600;
+	font-size: 0.9em;
+}
+
+.payment-form .products .item-description{
+	font-size:0.8em;
+	opacity:0.6;
+}
+
+.payment-form .products .item p{
+	margin-bottom:0.2em;
+}
+
+.payment-form .products .price{
+	float: right;
+	font-weight: 600;
+	font-size: 0.9em;
+}
+
+.payment-form .products .total{
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	margin-top: 10px;
+	padding-top: 19px;
+	font-weight: 600;
+	line-height: 1;
+}
+
+.payment-form .card-details{
+	padding: 25px 25px 15px;
+}
+
+.payment-form .card-details label{
+	font-size: 12px;
+	font-weight: 600;
+	margin-bottom: 15px;
+	color: #79818a;
+	text-transform: uppercase;
+}
+
+.payment-form .card-details button{
+	margin-top: 0.6em;
+	padding:12px 0;
+	font-weight: 600;
+}
+
+.payment-form .date-separator{
+ 	margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+@media (min-width: 576px) {
+	.payment-form .title {
+		font-size: 1.2em;
+	}
+
+	.payment-form .products {
+		padding: 40px;
+  	}
+
+	.payment-form .products .item-name {
+		font-size: 1em;
+	}
+
+	.payment-form .products .price {
+    	font-size: 1em;
+	}
+
+  	.payment-form .card-details {
+    	padding: 40px 40px 30px;
+    }
+
+  	.payment-form .card-details button {
+    	margin-top: 2em;
+    }
+}
+</style>
+</body>
+</html>

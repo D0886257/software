@@ -1,14 +1,58 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>Shopping Cart</title>
+    <script type="text/javascript" src="../libs/jquery-3.1.1.js"></script>
+    <script type="'text/javascript" src="../libs/bootstrap-3.1.1.7/js/bootstrap.js"></script>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Shopping Cart</title>
 </head>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Crazy Shop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">首頁</a>
+                </li>
+            </ul>
+
+
+            <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        會員中心
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="login.html">登入會員</a></li>
+                        <li><a class="dropdown-item" href="signup.html">加入會員</a></li>
+                        <li><a class="dropdown-item" href="member.html">會員中心</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="favor1.html">收藏清單</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart1.html">購物車</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
 <body>
+
 <main class="page">
     <section class="shopping-cart dark">
         <div class="container">
@@ -17,46 +61,9 @@
             </div>
             <div class="content">
                 <div class="row">
-                    <div class="col-md-12 col-lg-8">
-                        <div class="items">
-                            <div class="product">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img class="img-fluid mx-auto d-block image" src="#">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="info">
-                                            <div class="row">
-                                                <div class="col-md-5 product-name">
-                                                    <div class="product-name">
-                                                        <a href="#">Name#</a>
-                                                        <div class="product-info">
-                                                            <div><span class="value">Description#</span></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 quantity">
-                                                    <label for="quantity">數量:</label>
-                                                    <input id="quantity" type="number" value ="1" class="form-control quantity-input">
-                                                </div>
-                                                <div class="col-md-3 price">
-                                                    <span>$#</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="col-md-12 col-lg-8" id="productList"></div>
                     <div class="col-md-12 col-lg-4">
-                        <div class="summary">
-                            <h3>$</h3>
-                            <div class="summary-item"><span class="text">單價</span><span class="price">$#</span></div>
-                            <div class="summary-item"><span class="text">折扣</span><span class="price">$#</span></div>
-                            <div class="summary-item"><span class="text">運費</span><span class="price">$60</span></div>
-                            <div class="summary-item"><span class="text">總金額</span><span class="price">$#</span></div>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">結帳</button>
+                        <div class="summary" id="total">
                         </div>
                     </div>
                 </div>
@@ -64,11 +71,112 @@
         </div>
     </section>
 </main>
-</body>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</body>
-</html>
+
+<!-- Optional JavaScript; choose one of the two! -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script>
+    var getUrlString = location.href;
+		var url = new URL(getUrlString);
+		var id = url.searchParams.get('id');
+
+		$( document ).ready( function() {
+		    console.log( "ready!" );
+		    getProducts();
+    });
+
+    function emptyProducts(){
+        $('#productList').empty();
+        $('#total').empty();
+    }
+
+    function addProducts(products){
+        var totalPrice = 0;
+        for ( let product of products ) {
+
+
+                let html = '<div class="items">';
+                html += '<div class="product">';
+                html += '<div class="row">';
+                html += '<div class="col-md-3"><img class="img-fluid mx-auto d-block image" src="' + product.url + '"></div>';
+                html += '<div class="col-md-8">';
+                html += '<div class="info">';
+                html += '<div class="row">';
+                html += '<div class="col-md-5 product-name">';
+                html += '<div class="product-name"><a>' + product.name + '</a>';
+                html += '</div>';
+                html += '</div>';
+                html += '<div class="col-md-4 quantity">';
+                html += '<label for="quantity">數量:</label>';
+                html += '<input id="quantity" type="number" value ="1" class="form-control quantity-input" min="0" max="50">';
+                html += '</div>';
+                html += '<div class="col-md-3 price"><span>' + product.price + '</span></div>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+			    $('#productList').append(html);
+
+                totalPrice += Number(product.price);
+
+
+        }
+        var totalPrice1 = totalPrice+ 40;
+        let h='<h3>Summary</h3>';
+			    h += '<div class="summary-item"><span class="text">商品總額</span><span class="price">$' +totalPrice+ '</span></div>';
+			    h += '<div class="summary-item"><span class="text">運費</span><span class="price">$40</span></div>';
+			    h += '<span class="price">$' + totalPrice1 + '</span>';
+			    h += '<div class="summary-item"><span class="text" >總金額</span></div>';
+                h += '<a href="pay.html?price='+ totalPrice1 +'" class="btn btn-primary" > 結帳 </a>';
+			    $('#total').append(h);
+
+
+    }
+
+
+
+
+
+    function getProducts(){
+        $.ajax({
+          // The URL for the request
+          url: "getCarts",
+
+          // Whether this is a POST or GET request
+          type: "GET",
+
+          // The type of data we expect back
+          dataType : "json",
+        })
+
+    // Code to run if the request succeeds (is done);
+    // The response is passed to the function
+    .done(function( json ) {
+      let products = json;
+      addProducts(products);
+    })
+    // Code to run if the request fails; the raw request and
+    // status codes are passed to the function
+    .fail(function( xhr, status, errorThrown ) {
+      alert( "Sorry, there was a problem!" );
+      console.log( "Error: " + errorThrown );
+      console.log( "Status: " + status );
+      console.dir( xhr );
+    })
+    // Code to run regardless of success or failure;
+    .always(function( xhr, status ) {
+      //alert( "The request is complete!" );
+    });
+    }
+</script>
 
 <style type="text/css">
 .shopping-cart{
@@ -77,12 +185,12 @@ font-family: 'Montserrat', sans-serif;
 }
 
 .shopping-cart.dark{
-background-color: #f6f6f6;
+<!--background-color: #f6f6f6;-->
 }
 
 .shopping-cart .content{
 box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
-background-color: white;
+<!--background-color: white;-->
 }
 
 .shopping-cart .block-heading{
@@ -204,3 +312,5 @@ text-align: center;
 }
 }
 </style>
+</body>
+</html>
