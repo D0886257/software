@@ -2,34 +2,34 @@ package fcu.sep.fcushop.model;
 
 public class Product {
 
-    private long id;
+  private long id;
 
-    private String name;
+  private String name;
 
-    private String imageUrl;
+  private String imageUrl;
 
-    private int price;
+  private int price;
 
-    private String description;
+  private String description;
 
-    public Product() {
-    }
+  public Product() {
+  }
 
-    public Product(long id, String name, String imageUrl, int price, String description) {
-        this.id = id;
-        this.name = name;
-        this.imageUrl = imageUrl;
-        this.price = price;
-        this.description = description;
-    }
+  public Product(long id, String name, String imageUrl, int price, String description) {
+    this.id = id;
+    this.name = name;
+    this.imageUrl = imageUrl;
+    this.price = price;
+    this.description = description;
+  }
 
-    public long getId() {
-        return id;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public void setId(long id) {
+    this.id = id;
+
 
     public String getName() {
         return name;

@@ -13,20 +13,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    @Autowired
+  @Autowired
     private UserService userService;
 
-    /**
+  /**
      * Register a user.
      *
      * @param newUser input user
      * @return user object with given id
      */
-    @PostMapping("/register")
+  @PostMapping("/register")
     public User register(@RequestBody User newUser) {
-        System.out.println(newUser.getUsername());
-        newUser = userService.registerUser(newUser);
-        return newUser;
-    }
+    System.out.println(newUser.getUsername());
+    newUser = userService.registerUser(newUser);
+    return newUser;
+  }
 
 }
